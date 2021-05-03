@@ -15,7 +15,28 @@
   </div>
 </div>
 
+<div class="col-md-4">
+  <div style="margin: 10px">
+    <h2>Comments</h2>
+    <br>
+    <hr>
+    {% if not post.comments.all %}
+      <p>No comments added yet...</p>
 
+    {% else %}
+      {% for comment in post.comments.all %}
+        <h3><strong>{{ comment.authors_name }} </strong></h3>
+        <p>{{ comment.comment_body }}</p>
+        <p><small>{{ comment.date_added }}</small></p>
+
+      {% endfor %}
+
+
+    {% endif %}
+    <p><a class="btn btn-primary" href="">Add Comment</a></p>
+
+  </div>
+</div>
 
 
 
